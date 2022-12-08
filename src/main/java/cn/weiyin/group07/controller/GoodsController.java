@@ -16,9 +16,9 @@ public class GoodsController {
 
     @Autowired
     GoodsService goodsService;
-
+    //展示所有商品
     @GetMapping("/")
-    public Result<List<Goods>> showAll() {
+    public Result<List<Goods>> showAllGoods() {
         List<Goods> goods = goodsService.showAll();
 
         return Result.success(goods,"查询完成");
