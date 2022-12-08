@@ -10,4 +10,7 @@
 	<select id="selectBytypeId" resultType="cn.weiyin.group07.pojo.Goods">
 		select * from goods where type_id = #{id};
 	</select>
+	<select id="selectById" resultType="cn.weiyin.group07.pojo.Goods">
+		select * from goods where id = #{id};
+	</select>
 </mapper>

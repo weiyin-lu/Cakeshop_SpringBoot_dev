@@ -14,4 +14,6 @@ public interface GoodsMapper {
 
 //    按typeid检索goods表
     List<Goods> selectBytypeId(Integer id);
+//    按id检索goods表
+    List<Goods> selectById(Integer id);
 }
