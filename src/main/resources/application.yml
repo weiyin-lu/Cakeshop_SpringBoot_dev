@@ -1,0 +1,28 @@
+server:
+  #端口
+  port: 7070
+spring:
+  #地址池配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/cakeshop?useSSL=false
+    username: root
+    password: 308047149
+    #数据源类型（地址池）
+    type: com.alibaba.druid.pool.DruidDataSource
+#映射配置
+mybatis:
+  #映射文件路径
+  mapper-locations: classpath:/mapper/*.xml
+  #实体类包配置
+  type-aliases-package: cn.weiyin.group07.pojo
+  configuration:
+    #下划线自动转驼峰
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    #log展示sql执行的细节
+    cn.weiyin.group07.mapper: debug
+
+
+
