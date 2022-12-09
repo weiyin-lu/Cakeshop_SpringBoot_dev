@@ -16,7 +16,7 @@ public class GoodsService {
         return goodsMapper.selectAll();
     }
 //    按类型查看商品
-    public List<Goods> searchById(int id) {
+    public Goods searchById(int id) {
         return goodsMapper.selectById(id);
     }
 //    按商品id查看商品

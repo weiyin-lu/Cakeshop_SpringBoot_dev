@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性是名称空间，必须唯一 -->
+<mapper namespace="cn.weiyin.group07.mapper.ShopCarMapper">
+    <insert id="insertShopCar">
+        insert into shopcar values(null,#{userId},#{goodsId},(select g.price from goods g where g.id = #{goodsId}),1)
+    </insert>
+    <update id="updateShopCar">
+        update shopcar set amount = amount + #{amount} where user_id = #{userId} and goods_id = #{goodsId};
+    </update>
+    <delete id="deleteShopCar">
+        delete from shopcar where user_id = #{userId} and goods_id = #{goodsId};
+    </delete>
+    <delete id="deleteShopCarUserAll">
+        delete from shopcar where user_id = #{userId}
+    </delete>
+    <delete id="deleteShopCarByAmount">
+        delete from shopcar where amount = 0;
+    </delete>
+    <select id="selectGoodsByUserId" resultType="cn.weiyin.group07.pojo.Goods">
+        select g.id, name, cover, image1, image2, price, intro, stock, type_id from goods g join shopcar s on g.id = s.goods_id
+        where s.user_id = #{userId} and g.id = s.goods_id;
+    </select>
+    <select id="selectByUserId" resultType="cn.weiyin.group07.pojo.ShopCar">
+        select * from shopcar where user_id = #{userId};
+    </select>
+
+</mapper>

@@ -33,8 +33,8 @@ public class GoodsController {
     }
 //    按商品id查看商品
     @GetMapping("/{id}")
-    public Result<List<Goods>> searchById(@PathVariable int id) {
-        List<Goods> goods = goodsService.searchById(id);
+    public Result<Goods> searchById(@PathVariable int id) {
+        Goods goods = goodsService.searchById(id);
 
         return Result.success(goods,"查询完成");
     }

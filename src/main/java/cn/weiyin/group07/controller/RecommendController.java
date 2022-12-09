@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/recommend")
+@RequestMapping("/recommends")
 public class RecommendController {
     @Autowired
     RecommendService recommendService;
