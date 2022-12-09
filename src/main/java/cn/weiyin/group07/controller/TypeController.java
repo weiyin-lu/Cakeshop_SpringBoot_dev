@@ -24,7 +24,7 @@ public class TypeController {
 
         return Result.success(s,"查询完成");
     }
-
+//    查询整个type的id和名字对照表
     @GetMapping("/")
     public Result<List<Type>> searchAllTypeName() {
         List<Type> types = typeService.showAllType();
