@@ -10,6 +10,8 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface TypeMapper {
 //    按照id检索name字段
-    public String selectTypeNameById(Integer id);
+    String selectTypeNameById(Integer id);
+//    查看整个type表
+    List<Type> selectAll();
 
 }

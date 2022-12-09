@@ -10,5 +10,14 @@
     <result column="type" property="type" jdbcType="BIT" />
     <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
   </resultMap>
+    <insert id="insertRecommend">
+      insert into recommend values(null,#{type},#{goodsId});
+    </insert>
+  <delete id="deleteRecommend">
+    delete from recommend where type = #{type} and goods_id = #{goodsId};
+  </delete>
+  <select id="selectGoodsIdByType" resultType="cn.weiyin.group07.pojo.Goods">
+    select g.id, name, cover, image1, image2, price, intro, stock, type_id from goods g join recommend r on g.id = r.goods_id where r.type = #{type};
+  </select>
 
 </mapper>

@@ -12,5 +12,8 @@
   <select id="selectTypeNameById" resultType="java.lang.String">
     select name from type where id = #{id}
   </select>
+  <select id="selectAll" resultType="cn.weiyin.group07.pojo.Type">
+    select * from type;
+  </select>
 
 </mapper>
