@@ -11,12 +11,16 @@ import java.util.List;
 public class GoodsService {
     @Autowired
     GoodsMapper goodsMapper;
-
+//    展示所有商品
     public List<Goods> showAll() {
         return goodsMapper.selectAll();
     }
-
+//    按类型查看商品
     public List<Goods> searchById(int id) {
+        return goodsMapper.selectBytypeId(id);
+    }
+//    按商品id查看商品
+    public List<Goods> searchByTypeId(int id) {
         return goodsMapper.selectBytypeId(id);
     }
 }
