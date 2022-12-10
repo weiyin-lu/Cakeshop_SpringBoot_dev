@@ -6,8 +6,11 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.core.annotation.Order;
 
 @Mapper
 public interface OrderitemMapper {
+//    向orderitem表插入数据
+    void insertOrderitem(Orderitem orderitem);
 
 }

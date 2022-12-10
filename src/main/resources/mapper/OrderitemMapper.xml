@@ -12,5 +12,8 @@
     <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
     <result column="order_id" property="orderId" jdbcType="INTEGER" />
   </resultMap>
+  <insert id="insertOrderitem">
+        insert into orderitem value(null,#{price},#{amount},#{goodsId},#{orderId});
+  </insert>
 
 </mapper>

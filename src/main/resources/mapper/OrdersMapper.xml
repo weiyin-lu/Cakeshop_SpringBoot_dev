@@ -17,7 +17,19 @@
     <result column="datetime" property="datetime" jdbcType="TIMESTAMP" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
   </resultMap>
-    <select id="selectByUserId" resultType="cn.weiyin.group07.pojo.Orders">
+  <insert id="insertOrders" useGeneratedKeys="true" keyProperty="id">
+    insert into orders values(null,
+        (select sum(s.price) from shopcar s where user_id = #{userId}),
+        (select sum(s.amount) from shopcar s where user_id = #{userId}),
+        1,1,
+        (select u.name from user u where id = #{userId}),
+        (select u.phone from user u where id = #{userId}),
+        (select u.address from user u where id = #{userId}),
+        now(),
+        #{userId}
+        );
+  </insert>
+  <select id="selectByUserId" resultType="cn.weiyin.group07.pojo.Orders">
       select * from orders where user_id = #{userId};
     </select>
 
