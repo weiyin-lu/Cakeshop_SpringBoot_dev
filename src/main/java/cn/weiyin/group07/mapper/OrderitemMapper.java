@@ -13,4 +13,7 @@ public interface OrderitemMapper {
 //    向orderitem表插入数据
     void insertOrderitem(Orderitem orderitem);
 
+//    查询order_id匹配的orderitem数据
+    List<Orderitem> selectOrderitemAll(Integer OrderId);
+
 }

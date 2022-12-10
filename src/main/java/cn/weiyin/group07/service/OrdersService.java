@@ -21,11 +21,13 @@ public class OrdersService {
     OrderitemMapper orderitemMapper;
     @Autowired
     ShopCarMapper shopCarMapper;
+
 //    查询用户的所有订单
     public List<Orders> showOrder(int inputUserId){
         List<Orders> orders = ordersMapper.selectByUserId(inputUserId);
         return orders;
     }
+
 //    从购物车创建新订单
     public Boolean createOrder(int inputUserId) {
         boolean flag = true;

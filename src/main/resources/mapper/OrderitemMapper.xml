@@ -15,5 +15,8 @@
   <insert id="insertOrderitem">
         insert into orderitem value(null,#{price},#{amount},#{goodsId},#{orderId});
   </insert>
+  <select id="selectOrderitemAll" resultType="cn.weiyin.group07.pojo.Orderitem">
+        select * from orderitem where order_id = #{orderId};
+  </select>
 
 </mapper>
