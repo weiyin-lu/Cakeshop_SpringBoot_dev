@@ -9,10 +9,12 @@
         insert into shopcar values(null,#{userId},#{goodsId},(select g.price from goods g where g.id = #{goodsId}),1)
     </insert>
     <update id="updateShopCar">
-        update shopcar set amount = amount + #{amount} where user_id = #{userId} and goods_id = #{goodsId};
+        update shopcar s set amount = amount + #{amount},
+        s.price = s.price + (select g.price from goods g where g.id = s.goods_id) * #{amount}
+        where s.id = #{shopCarId};
     </update>
     <delete id="deleteShopCar">
-        delete from shopcar where user_id = #{userId} and goods_id = #{goodsId};
+        delete from shopcar where id = #{shopCarId};
     </delete>
     <delete id="deleteShopCarUserAll">
         delete from shopcar where user_id = #{userId}
@@ -21,7 +23,8 @@
         delete from shopcar where amount = 0;
     </delete>
     <select id="selectGoodsByUserId" resultType="cn.weiyin.group07.pojo.Goods">
-        select g.id, name, cover, image1, image2, price, intro, stock, type_id from goods g join shopcar s on g.id = s.goods_id
+        select g.id, name, cover, image1, image2, g.price, intro, stock, type_id
+        from goods g join shopcar s on g.id = s.goods_id
         where s.user_id = #{userId} and g.id = s.goods_id;
     </select>
     <select id="selectByUserId" resultType="cn.weiyin.group07.pojo.ShopCar">

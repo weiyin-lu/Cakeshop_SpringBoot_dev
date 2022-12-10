@@ -14,10 +14,10 @@ public interface ShopCarMapper {
     List<ShopCar> selectByUserId(Integer userId);
 //    插入字段,amount为1，价格数据从goods表获得
     void insertShopCar(Integer userId, Integer goodsId);
-//    根据userId和goodsId更新amount字段
-    void updateShopCar(Integer userId,Integer goodsId,Integer amount);
-//    根据userId和goodsId删除记录
-    void deleteShopCar(Integer userId,Integer goodsId);
+//    根据id更新amount字段
+    void updateShopCar(Integer shopCarId,Integer amount);
+//    根据id删除记录
+    void deleteShopCar(Integer shopCarId);
 //    根据userId删除记录
     void deleteShopCarUserAll(Integer userId);
 //    删除amount字段为0的记录

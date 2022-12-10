@@ -35,10 +35,10 @@ public class ShopCarService {
         return flag;
     }
 //    修改购物车内容的数量
-    public Boolean changeAmount(int inputUserId,int inputGoodsId,int amount) {
+    public Boolean changeAmount(int inputShopCarId,int amount) {
         boolean flag=true;
         try {
-            shopCarMapper.updateShopCar(inputUserId,inputUserId,amount);
+            shopCarMapper.updateShopCar(inputShopCarId,amount);
         }
         catch (Exception e) {
             flag = false;
@@ -47,10 +47,10 @@ public class ShopCarService {
         return flag;
     }
 //    删除一条购物车记录
-    public Boolean removeShopCar(int inputUserId,int goodsId) {
+    public Boolean removeShopCar(int inputShopCarId) {
         boolean flag=true;
         try {
-            shopCarMapper.deleteShopCar(inputUserId,inputUserId);
+            shopCarMapper.deleteShopCar(inputShopCarId);
         }
         catch (Exception e) {
             flag = false;
