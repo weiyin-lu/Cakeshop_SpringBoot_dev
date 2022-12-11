@@ -69,5 +69,13 @@ public class OrdersService {
         return flag;
 
     }
+//    修改订单中status的状态 1已下单 2已发货 3已送达
+    public int changeStatus(int inputOrderId,int inputStatus) {
+        return ordersMapper.updateStatusById(inputOrderId,inputStatus);
+    }
+//    修改订单中paytype的状态 1未支付 2已支付
+    public int changePaytype(int inputOrderId,int inputStatus) {
+        return ordersMapper.updatePayTypeById(inputOrderId,inputStatus);
+    }
 
 }

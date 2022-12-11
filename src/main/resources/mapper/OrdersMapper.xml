@@ -29,7 +29,13 @@
         #{userId}
         );
   </insert>
-  <select id="selectByUserId" resultType="cn.weiyin.group07.pojo.Orders">
+    <update id="updateStatusById">
+        update orders set status = #{status} where id = #{orderId}
+    </update>
+    <update id="updatePayTypeById">
+        update orders set paytype = #{paytype} where id = #{orderId}
+    </update>
+    <select id="selectByUserId" resultType="cn.weiyin.group07.pojo.Orders">
       select * from orders where user_id = #{userId};
     </select>
 
