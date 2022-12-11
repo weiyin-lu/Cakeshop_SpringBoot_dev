@@ -22,4 +22,15 @@ public class OrderController {
         List<Orders> orders = ordersService.showOrder(userId);
         return Result.success(orders,"查询完成");
     }
+
+    @GetMapping("/create/{userId}")
+    public Result<Object> createOrder(@PathVariable int userId) {
+        Boolean order = ordersService.createOrder(userId);
+        if(order) {
+            return Result.success("创建成功");
+        }
+        else {
+            return Result.failed("创建失败");
+        }
+    }
 }

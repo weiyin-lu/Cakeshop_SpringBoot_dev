@@ -15,8 +15,8 @@ public class UserController {
 //    注册
     @PostMapping("/register")
     public Result<String> register(@RequestBody User inputUser) {
-        boolean register = userService.register(inputUser);
-        if(register) {
+        int register = userService.register(inputUser);
+        if(register == 1) {
             return Result.success("注册成功");
         }
         else

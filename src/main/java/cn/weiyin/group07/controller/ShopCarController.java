@@ -30,8 +30,8 @@ public class ShopCarController {
 //    增加购物车条目
     @PutMapping("/{userId}/{goodsId}")
     public Result<Object> addShopCar(@PathVariable int userId,@PathVariable int goodsId) {
-        Boolean aBoolean = shopCarService.addShopCar(userId, goodsId);
-        if(aBoolean) {
+        int aBoolean = shopCarService.addShopCar(userId, goodsId);
+        if(aBoolean == 1) {
             return Result.success("插入完成");
         }
         else {
@@ -42,8 +42,11 @@ public class ShopCarController {
 //    修改数量
     @GetMapping("/{shopCarId}/{amount}")
     public Result<Object> changeAmount(@PathVariable int shopCarId,@PathVariable int amount) {
-        Boolean aBoolean = shopCarService.changeAmount(shopCarId, amount);
-        if(aBoolean) {
+//        执行商品数量的修改
+        int aBoolean = shopCarService.changeAmount(shopCarId, amount);
+//        检查一次已经归零的购物车信息，将其删除
+        shopCarService.removeZero();
+        if(aBoolean == 1) {
             return Result.success("增加完成");
         }
         else {
@@ -54,8 +57,8 @@ public class ShopCarController {
 //    删除购物车记录
     @DeleteMapping("/{shopCarId}")
     public Result<Object> removeCarGoods(@PathVariable int shopCarId) {
-        Boolean aBoolean = shopCarService.removeShopCar(shopCarId);
-        if(aBoolean) {
+        int aBoolean = shopCarService.removeShopCar(shopCarId);
+        if(aBoolean == 1) {
             return Result.success("删除成功");
         }
         else {
@@ -66,12 +69,12 @@ public class ShopCarController {
 //    清空购物车
     @DeleteMapping("/clear/{userId}")
     public Result<Object> clearCar(@PathVariable int userId) {
-        Boolean aBoolean = shopCarService.clearShopCar(userId);
-        if(aBoolean) {
+        int aBoolean = shopCarService.clearShopCar(userId);
+        if(aBoolean != 0) {
             return Result.success("清空成功");
         }
         else {
-            return Result.failed("清空失败");
+            return Result.failed("购物车已经为空");
         }
     }
 }

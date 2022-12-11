@@ -13,28 +13,12 @@ public class RecommendService {
     @Autowired
     RecommendMapper recommendMapper;
 //    添加推荐信息，返回添加结果
-    public Boolean addRecommend(Recommend inputRecommend) {
-        boolean flag = true;
-        try  {
-            recommendMapper.insertRecommend(inputRecommend);
-        }
-        catch (Exception e) {
-            flag = false;
-            e.printStackTrace();
-        }
-        return flag;
+    public int addRecommend(Recommend inputRecommend) {
+        return recommendMapper.insertRecommend(inputRecommend);
     }
 //    删除一条推荐信息，返回添加结果
-    public Boolean deleteRecommend(int inputType,int inputGoodsId) {
-        boolean flag = true;
-        try  {
-            recommendMapper.deleteRecommend(inputType,inputGoodsId);
-        }
-        catch (Exception e) {
-            flag = false;
-            e.printStackTrace();
-        }
-        return flag;
+    public int deleteRecommend(int inputType,int inputGoodsId) {
+        return recommendMapper.deleteRecommend(inputType,inputGoodsId);
     }
 //   按照推荐类型查询推荐名单
     public List<Goods> searchRecommendByType(int type) {

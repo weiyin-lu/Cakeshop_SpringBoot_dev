@@ -13,15 +13,15 @@ public interface ShopCarMapper {
 //    查询userId匹配的shopcar表字段
     List<ShopCar> selectByUserId(Integer userId);
 //    插入字段,amount为1，价格数据从goods表获得
-    void insertShopCar(Integer userId, Integer goodsId);
+    Integer insertShopCar(Integer userId, Integer goodsId);
 //    根据id更新amount字段
-    void updateShopCar(Integer shopCarId,Integer amount);
+    Integer updateShopCar(Integer shopCarId,Integer amount);
 //    根据id删除记录
-    void deleteShopCar(Integer shopCarId);
+    Integer deleteShopCar(Integer shopCarId);
 //    根据userId删除记录
-    void deleteShopCarUserAll(Integer userId);
-//    删除amount字段为0的记录
-    void deleteShopCarByAmount();
+    Integer deleteShopCarUserAll(Integer userId);
+//    删除amount字段小于等于0的记录
+    Integer deleteShopCarByAmount();
 
 }
 

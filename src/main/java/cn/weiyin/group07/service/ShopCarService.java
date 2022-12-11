@@ -23,63 +23,23 @@ public class ShopCarService {
         return shopCars;
     }
 //    添加购物车信息
-    public Boolean addShopCar(int inputUserId,int inputGoodsId) {
-        boolean flag=true;
-        try {
-            shopCarMapper.insertShopCar(inputUserId,inputGoodsId);
-        }
-        catch (Exception e) {
-            flag = false;
-            e.printStackTrace();
-        }
-        return flag;
+    public int addShopCar(int inputUserId,int inputGoodsId) {
+        return shopCarMapper.insertShopCar(inputUserId,inputGoodsId);
     }
 //    修改购物车内容的数量
-    public Boolean changeAmount(int inputShopCarId,int amount) {
-        boolean flag=true;
-        try {
-            shopCarMapper.updateShopCar(inputShopCarId,amount);
-        }
-        catch (Exception e) {
-            flag = false;
-            e.printStackTrace();
-        }
-        return flag;
+    public int changeAmount(int inputShopCarId,int amount) {
+        return shopCarMapper.updateShopCar(inputShopCarId,amount);
     }
 //    删除一条购物车记录
-    public Boolean removeShopCar(int inputShopCarId) {
-        boolean flag=true;
-        try {
-            shopCarMapper.deleteShopCar(inputShopCarId);
-        }
-        catch (Exception e) {
-            flag = false;
-            e.printStackTrace();
-        }
-        return flag;
+    public int removeShopCar(int inputShopCarId) {
+        return shopCarMapper.deleteShopCar(inputShopCarId);
     }
 //    清空当前用户购物车
-    public Boolean clearShopCar(int inputUserId) {
-        boolean flag=true;
-        try {
-            shopCarMapper.deleteShopCarUserAll(inputUserId);
-        }
-        catch (Exception e) {
-            flag = false;
-            e.printStackTrace();
-        }
-        return flag;
+    public int clearShopCar(int inputUserId) {
+        return shopCarMapper.deleteShopCarUserAll(inputUserId);
     }
 //    清空数量为0的购物车数据
-    public Boolean RemoveZero() {
-        boolean flag=true;
-        try {
-            shopCarMapper.deleteShopCarByAmount();
-        }
-        catch (Exception e) {
-            flag = false;
-            e.printStackTrace();
-        }
-        return flag;
+    public int removeZero() {
+        return shopCarMapper.deleteShopCarByAmount();
     }
 }

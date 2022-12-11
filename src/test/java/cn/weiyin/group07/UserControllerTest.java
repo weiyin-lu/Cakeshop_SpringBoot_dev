@@ -18,7 +18,7 @@ public class UserControllerTest {
         user.setPassword("test");
         user.setEmail("test@test.com");
         user.setUsername("test");
-        boolean register = userService.register(user);
+        int register = userService.register(user);
         System.out.println(register);
     }
 }

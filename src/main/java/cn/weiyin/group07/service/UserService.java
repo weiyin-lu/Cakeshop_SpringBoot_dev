@@ -10,16 +10,8 @@ public class UserService {
     @Autowired
     UserMapper userMapper;
 
-    public boolean register(User user) {
-        boolean flag=true;
-        try {
-            userMapper.insertUser(user);
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-            flag=false;
-        }
-        return flag;
+    public int register(User user) {
+        return userMapper.insertUser(user);
     }
 
     public User login(String inputEmail,String inputPwd) {

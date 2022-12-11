@@ -5,9 +5,6 @@ import cn.weiyin.group07.pojo.Orderitem;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.core.annotation.Order;
-
 @Mapper
 public interface OrderitemMapper {
 //    向orderitem表插入数据

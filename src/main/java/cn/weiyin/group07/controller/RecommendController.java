@@ -18,8 +18,8 @@ public class RecommendController {
 //    添加一条推荐信息
     @PutMapping("/")
     public Result<Object> addRecommend(@RequestBody Recommend recommend) {
-        Boolean aBoolean = recommendService.addRecommend(recommend);
-        if(aBoolean) {
+        Integer aBoolean = recommendService.addRecommend(recommend);
+        if(aBoolean == 1) {
             return Result.success("添加成功");
         }
         else {
@@ -29,8 +29,8 @@ public class RecommendController {
 //    删除一条推荐信息
     @DeleteMapping("/{type}/{goodsId}")
     public Result<Object> deleteRecommend(@PathVariable int type,@PathVariable int goodsId) {
-        Boolean aBoolean = recommendService.deleteRecommend(type, goodsId);
-        if(aBoolean) {
+        Integer aBoolean = recommendService.deleteRecommend(type, goodsId);
+        if(aBoolean == 1) {
             return Result.success("删除成功");
         }
         else  {
