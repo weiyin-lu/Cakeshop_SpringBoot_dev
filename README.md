@@ -1,19 +1,23 @@
 # URL说明
 项目所有URL采用RESTful写法  
 默认端口号：**7070**  
-在本地启动springboot jar包，访问格式如下
+在本地启动springboot jar包，访问格式如下：
 ~~~ 
 http://localhost:7070/请求链接
 ~~~
-所有请求将会返回一个JSON对象
+所有请求将会返回一个JSON对象，如下：
 ```json lines
 {
     "flag": "false", /*响应的结果*/
-    "result": {},/*响应的数据，可能是数组或者对象一般只在查询时会返回内容，其他情况下为null*/
+    "result": {},/*响应的数据，可能是数组或者对象，一般只在查询时会返回内容，其他情况下为null*/
     "msg": "default" /*返回的提示消息，可以直接在前端用*/
 }
 ```
-以下详细请求仅写出请求路径
+以下详细请求按照如下格式描述：
+~~~
+请求方式
+请求路径
+~~~
 ## GoodsController 商品相关
 ~~~
 GET
@@ -106,7 +110,50 @@ DELETE
 删除购物车中的一条记录  
 {shopCarId} : 购物车条目id  
 ~~~
+DELETE
 /shopcars/clear/{userId}
 ~~~
 清空用户的购物车  
-{userId} : 用户id
+{userId} : 用户id  
+## TypeController 商品相关（分类）
+~~~
+GET
+/types/
+~~~
+查看分类名和数字id的对照表  
+result : 分类的对象数组  
+~~~
+GET
+/types/{id}
+~~~
+按照id返回分类名  
+{id} : 用户id  
+result : 分类名  
+## OrderController 订单相关
+~~~
+GET
+/orders/{userId}
+~~~
+查看用户的所有订单  
+{userId} : 用户id  
+result : 订单对象数组  
+~~~
+GET
+/orders/create/{userId}
+~~~
+把购物车中的所有商品创建为订单  
+{userId} : 用户id  
+~~~
+GET
+/orders/status/{orderId}/{status}
+~~~
+修改订单的发货状态  
+{orderId} : 订单id  
+{status} : 发货状态 1未发货 2已发货 3已签收
+~~~
+GET
+/orders/status/{orderId}/{paytype}
+~~~
+修改订单的发货状态  
+{orderId} : 订单id  
+{paytype} : 支付状态 1待付款 2已付款
