@@ -4,7 +4,6 @@ import cn.weiyin.group07.pojo.Goods;
 import cn.weiyin.group07.pojo.Recommend;
 import cn.weiyin.group07.result.Result;
 import cn.weiyin.group07.service.RecommendService;
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

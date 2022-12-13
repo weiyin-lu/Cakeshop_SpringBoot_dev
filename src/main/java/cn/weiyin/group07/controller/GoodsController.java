@@ -22,7 +22,7 @@ public class GoodsController {
 
         return Result.success(goods,"查询完成");
     }
-//    按类型查看商品
+//    按推荐类型查看商品
     @GetMapping("/type/{id}")
     public Result<List<Goods>> searchByTypeId(@PathVariable int id) {
         List<Goods> goods = goodsService.searchByTypeId(id);
