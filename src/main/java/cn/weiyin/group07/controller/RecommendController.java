@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/recommends")
+@CrossOrigin(origins = "*")
 public class RecommendController {
     @Autowired
     RecommendService recommendService;

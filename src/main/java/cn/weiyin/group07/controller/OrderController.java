@@ -4,15 +4,13 @@ import cn.weiyin.group07.pojo.Orders;
 import cn.weiyin.group07.result.Result;
 import cn.weiyin.group07.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/orders")
+@CrossOrigin(origins = "*")
 public class OrderController {
     @Autowired
     OrdersService ordersService;
@@ -33,7 +31,7 @@ public class OrderController {
             return Result.failed("创建失败");
         }
     }
-//    修改订单状态
+//    修改订单发货状态
     @GetMapping("/status/{orderId}/{status}")
     public Result<Object> changeStatus(@PathVariable int orderId,@PathVariable int status) {
         int i = ordersService.changeStatus(orderId, status);
@@ -44,7 +42,7 @@ public class OrderController {
             return Result.failed("修改失败");
         }
     }
-//    修改订单状态
+//    修改订单支付状态
     @GetMapping("/paytype/{orderId}/{paytype}")
     public Result<Object> changePaytype(@PathVariable int orderId,@PathVariable int paytype) {
         int i = ordersService.changePaytype(orderId, paytype);

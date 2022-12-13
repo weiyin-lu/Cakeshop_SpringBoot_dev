@@ -4,15 +4,13 @@ import cn.weiyin.group07.pojo.Goods;
 import cn.weiyin.group07.result.Result;
 import cn.weiyin.group07.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/goods")
+@CrossOrigin(origins = "*")
 public class GoodsController {
 
     @Autowired
